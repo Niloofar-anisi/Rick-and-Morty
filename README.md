@@ -1,9 +1,3 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
--[@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Rick and Morty Animation Characters Using API
+Project Introduction: 
+This project is a user interface that allows users to view and interact with information about characters from the animated series Rick and Morty. Data is retrieved through the series' official API. Users can easily view character details, search for characters, sort episodes by date, and manage their list of favorites.
