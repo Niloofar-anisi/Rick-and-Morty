@@ -1,0 +1,23 @@
+# Node modules  
+node_modules/  
+# Output directories  
+dist/  
+dist-ssr/  
+# Editor directories and files  
+.vscode/*  
+!.vscode/extensions.json  
+.idea/  
+# macOS files  
+.DS_Store  
+# Visual Studio files  
+*.suo  
+*.ntvs*  
+*.njsproj  
+*.sln  
+# Temporary files  
+*.sw?  
+# Local files  
+*.local
+# Vite temporary files
+.vite/
+.vite_cache/
