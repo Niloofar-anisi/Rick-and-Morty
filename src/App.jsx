@@ -3,7 +3,7 @@ import DetailsCharacter from "./components/DetailsCharacter";
 import ListsCharacter from "./components/ListsCharacter";
 import Navbar, { Favourites, Search, SearchResult } from "./components/Navbar";
 import Loder from "./components/Loder";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Toaster } from "react-hot-toast";
 
 import useCharacters from "./hooks/useCharacters";
