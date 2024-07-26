@@ -1,53 +1,19 @@
-import { allCharacters } from "../data/data";
 import "./App.css";
 import DetailsCharacter from "./components/DetailsCharacter";
 import ListsCharacter from "./components/ListsCharacter";
 import Navbar, { Favourites, Search, SearchResult } from "./components/Navbar";
 import Loder from "./components/Loder";
 import { useEffect, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
-import axios from "axios";
+import { Toaster } from "react-hot-toast";
+
+import useCharacters from "./hooks/useCharacters";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
-  const [characters, setCharacters] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [query, setQuary] = useState("");
+  const { isLoading, characters } = useCharacters(query);
   const [selectedId, setSelectedId] = useState(null);
-  const [favourites, setFavourites] = useState(
-    () => JSON.parse(localStorage.getItem("FAVOURITES")) || []
-  );
-
-  useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    async function fetchData() {
-      try {
-        setIsLoading(true);
-        const { data } = await axios.get(
-          `https://rickandmortyapi.com/api/character/?name= ${query}`,
-          { signal }
-        );
-        setCharacters(data.results);
-      } catch (err) {
-        if (!axios.isCancel()) {
-          setCharacters([]);
-          toast.error(err.response.data.error);
-        }
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    fetchData();
-    return () => {
-      controller.abort();
-    };
-  }, [query]);
-
-  useEffect(() => {
-    localStorage.setItem("FAVOURITES", JSON.stringify(favourites), [
-      favourites,
-    ]);
-  });
+  const [favourites, setFavourites] = useLocalStorage("FAVOURITES", []);
 
   const handleselectedCharacter = (id) => {
     setSelectedId(id);
